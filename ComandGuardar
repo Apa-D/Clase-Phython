@@ -1,0 +1,14 @@
+git clone https://github.com/Apa-D/Clase-Phython
+
+code -r .\Clase-Phython\
+
+py -m venv .venv
+
+.\.venv\Scripts\activate
+
+pip install Flask
+
+git status
+git add
+git commit
+git push 
