@@ -30,13 +30,13 @@
         </tr>
     </thead>
     <tbody>
-        {% for tarea in tareas %}
-        <tr>
-            <td>{{ tarea.id }}</td>
-            <td>{{ tarea.texto }}</td>
-            <td>{{ tarea.texto }}</td>
-            <td>{{ "Sí" if tarea.completado else "No" }}</td>
-        </tr>
+        {% for recordatorio in recordatorios %}
+            <tr>
+                <td>{{ recordatorio.id }}</td>
+                <td>{{ recordatorio.texto }}</td>
+                <td>{{ recordatorio.CreatAt }}</td>
+                <td><a href="/completar/{{ recordatorio.id }}" class="btn btn-success">Completar</a></td>
+            </tr>
         {% endfor %}
     </tbody>
 </table>
