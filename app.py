@@ -17,7 +17,7 @@ def index():
 def Cargar_reminders():
     return render_template("Recordatorios.html")
 
-@app.post("/api/reminder", methods=["POST"])
+@app.post("/api/reminder")
 def crear_reminders():
     global idActual
     datos = request.form
