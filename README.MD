@@ -1,3 +1,3 @@
-# Certamen 1 POO Diego Ruiz
+# Certamen 1 POO
 
-Este es mi entrega
+Certamen 1 entrega 10-04-2025
