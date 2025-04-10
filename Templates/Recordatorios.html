@@ -1,1 +1,49 @@
+{% extends 'layouts/default.html' %}
 
+{% block contenido %}
+<h1>Tareas</h1>
+
+{% with mensajes = get_flashed_messages(with_categories = true) %}
+    {% if mensajes %}
+        {% for categoria, mensaje in mensajes %}
+            <div class="alert alert-{{ categoria }} mb-3" role="alert">
+                {{ mensaje }}
+            </div>
+        {% endfor%}
+    {% endif %}
+{% endwith %}
+
+<form action="/crear-reminder" method="POST">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Escriba la tarea" aria-label="Escriba la tarea" aria-describedby="boton-tarea" name="texto">
+        <button class="btn btn-primary" type="submit" id="boton-tarea">Button</button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tarea</th>
+            <th>Creado el</th>
+            <th>Completada</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tarea in tareas %}
+        <tr>
+            <td>{{ tarea.id }}</td>
+            <td>{{ tarea.texto }}</td>
+            <td>{{ tarea.texto }}</td>
+            <td>{{ "Sí" if tarea.completado else "No" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+
+
+{% endblock %}
