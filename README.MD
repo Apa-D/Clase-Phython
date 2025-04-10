@@ -1,3 +1,3 @@
-# Certamen 1 POO
+# Certamen 1 POO Diego Ruiz CAMBIADO
 
-Certamen 1 entrega 10-04-2025
+Este es mi entrega. 10-04-2025
