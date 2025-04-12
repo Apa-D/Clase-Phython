@@ -13,10 +13,10 @@
     {% endif %}
 {% endwith %}
 
-<form action="crear_reminders" method="POST">
+<form action="/crear-recordatorio" method="POST">
     <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Escriba la tarea" aria-label="Escriba la tarea" aria-describedby="boton-tarea" name="texto">
-        <button class="btn btn-primary" type="submit" id="boton-tarea">Button</button>
+        <input type="text" class="form-control" placeholder="Escriba el recordatorio" aria-label="Escriba el recordatorio" aria-describedby="boton-tarea" name="texto">
+        <button class="btn btn-primary" type="submit" id="boton-recordatorio">Button</button>
     </div>
 </form>
 <table class="table">
@@ -26,6 +26,7 @@
             <th>Tarea</th>
             <th>Creado el</th>
             <th>Completada</th>
+            <th>Impo?</th>
         </tr>
     </thead>
     <tbody>
@@ -34,15 +35,9 @@
                 <td>{{ recordatorio.id }}</td>
                 <td>{{ recordatorio.texto }}</td>
                 <td>{{ recordatorio.CreatAt }}</td>
-                <td><a href="/completar/{{ recordatorio.id }}" class="btn btn-success">Completar</a></td>
+                <td> <button action= "/api/Recordatorio/"int:id name="" ></button></td>
             </tr>
         {% endfor %}
     </tbody>
 </table>
-
-
-
-
-
-
 {% endblock %}
