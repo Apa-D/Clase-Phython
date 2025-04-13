@@ -1,7 +1,7 @@
 {% extends 'layouts/default.html' %}
 
 {% block contenido %}
-<h1>Tareas</h1>
+<h1>Recordatorios </h1>
 
 {% with mensajes = get_flashed_messages(with_categories = true) %}
     {% if mensajes %}
@@ -45,11 +45,13 @@
                     </form>
                 </td>
                 <td> 
-                    <form action="" > 
+                    <form action="" >
+                        <button type="submit" class="btn btn-sm">Actualizar</button>
                     </form>
                 </td>
                 <td>
                     <form action="" >
+                        <button type="submit" class="btn btn-sm">Borrar</button>
                     </form>
                 </td>
             </tr>
