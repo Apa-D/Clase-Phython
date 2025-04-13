@@ -23,9 +23,9 @@ def crear_recordatorio():
     datos = request.form
     texto = datos.get("texto")
 
-    if texto is None or len(texto) < 5:
-        flash("El texto del recordatorio debe tene como mínimo 5 caracteres", "warning")
-        return redirect("/Recordatorio")
+    if texto is None or len(texto) < 1:
+        flash("El texto del recordatorio debe tener caracteres", "warning")
+        return redirect("/Recordatorio")               #salta correctamente
     
     nueva_redimers = nueva_redimers = { "id": idActual, "texto": texto, "CreateAt": CreateAt,"Importante": False }
     idActual += 1
@@ -34,6 +34,25 @@ def crear_recordatorio():
     flash("Recordatorio creada exitosamente", "success") 
     return redirect("/Recordatorio")
 
+
+@app.route('/borrar-recordatorio/<int:id>', methods=['POST'])
+def borrar_recordatorio(id):
+    global recordatorioList
+    recordatorioList = [r for r in recordatorioList if r.id != id]
+    flash("Recordatorio borrado exitosamente", "success")
+    return redirect("/Recordatorio") 
+
+
+@app.route('/editar-recordatorio/<int:id>', methods=['GET', 'POST'])
+def editar_recordatorio(id):
+    recordatorio = next((r for r in recordatorioList if r.id == id), None)
+    if request.method == 'POST':
+        nuevo_texto = request.form['texto']
+        if recordatorio:
+            recordatorio.texto = nuevo_texto
+            flash("Recordatorio actualizado", "success")
+        return redirect("/Recordatorio")
+    return render_template('editar.html', recordatorio=recordatorio)
 
 @app.route("/Recordatorio/<int:id>", methods=["PATCH"])
 def actualizar_recordatorio(id):

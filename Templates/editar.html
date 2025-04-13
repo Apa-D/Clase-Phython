@@ -1,0 +1,14 @@
+{% extends 'layouts/default.html' %}
+
+{% block contenido %}
+<h2>Editar Recordatorio</h2>
+
+<form method="POST">
+    <div class="mb-3">
+        <label for="texto" class="form-label">Texto del recordatorio</label>
+        <input type="text" class="form-control" name="texto" id="texto" value="{{ recordatorio.texto }}">
+    </div>
+    <button type="submit" class="btn btn-success">Guardar cambios</button>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
