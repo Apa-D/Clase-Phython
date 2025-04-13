@@ -15,7 +15,8 @@
 
 <form action="/crear-recordatorio" method="POST">
     <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Escriba el recordatorio" aria-label="Escriba el recordatorio" aria-describedby="boton-tarea" name="texto">
+        <input type="text" class="form-control" placeholder="Escriba el recordatorio" 
+            aria-label="Escriba el recordatorio" aria-describedby="boton-recordatorio" name="texto">
         <button class="btn btn-primary" type="submit" id="boton-recordatorio">Button</button>
     </div>
 </form>
@@ -25,17 +26,32 @@
             <th>ID</th>
             <th>Tarea</th>
             <th>Creado el</th>
-            <th>Completada</th>
-            <th>Impo?</th>
+            <th>Importante</th>
+            <th>Actualizar</th>
+            <th>Borrar</th>
         </tr>
     </thead>
     <tbody>
-        {% for recordatorio in recordatorios %}
+        {% for recordatorio in recordatorioList %} 
             <tr>
                 <td>{{ recordatorio.id }}</td>
                 <td>{{ recordatorio.texto }}</td>
                 <td>{{ recordatorio.CreatAt }}</td>
-                <td> <button name="Importante" ></button></td>
+                <td>
+                    <form action="actualizar_recordatorio" method="POST">
+                        <button type="submit" class="btn btn-sm {{ 'btn-success' if recordatorio.Importante else 'btn-secondary' }}">
+                            {{ "Marcar como no Importante" if recordatorio.Importante else "Marcar como Importante" }}
+                        </button>
+                    </form>
+                </td>
+                <td> 
+                    <form action="" > 
+                    </form>
+                </td>
+                <td>
+                    <form action="" >
+                    </form>
+                </td>
             </tr>
         {% endfor %}
     </tbody>
